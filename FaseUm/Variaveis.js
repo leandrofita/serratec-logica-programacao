@@ -1,0 +1,21 @@
+var qtdVendedores = 5;
+var enderecoCompleto = "Nome da rua, Numero, Complemento" 
+var precoEtanol = 5.19;
+var stateLampada = true;
+var cep = "54896-185"
+var andarAtualElevador = "T"
+var stateElevador = true;
+var nascimentoProfessor = new Date(1500, 01, 01);
+var presoPrato = 562.27;
+var qtdBois = 1250;
+var dataPascoa = new Date(2021,04,04);
+var qtdLaranjas = 56;
+var vogalMinuscula = "a".toLowerCase();
+var tituloDoLivro = "O Poder da Espada";
+var limiteCartaoCredito = 1.99;
+var horaDaTransmissaoDoJogo = new Date(2021, 08, 17, 9, 30, 0);
+var alturaDoPredio = 70.0;
+var paginasDoCaderno = 100;
+var disponibilidadeSalaReuniao = false;
+var alternativasMultiplaEscolha = ['a','b','c','d','e'];
+

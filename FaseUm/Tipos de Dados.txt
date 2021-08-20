@@ -1,0 +1,61 @@
+Para cada informação abaixo, classifique segundo o tipo de dados.
+
+Quantidade de vendedores da loja:
+R: Integer
+
+Nome da rua, com número e complemento:
+R: String
+
+Preço do etanol comum:
+R: Float
+
+Estado de iluminação de uma lâmpada
+R: Boolean
+
+CEP do endereço, com hífen
+R: String
+
+Mostrador com um dígito dentro do elevador, indicando o andar do prédio onde ele está passando
+R: Integer
+
+Led que indica o pressionamento do botão do elevador
+R: Boolean
+
+Data de aniversário do professor
+R: Date
+
+Peso do prato na balança do restaurante
+R: Float
+
+Número de bois no curral da fazenda
+R: Integer
+
+Dia completo da páscoa nesse ano
+R: Date
+
+Quantidade de laranjas na caixa
+R: Integer
+
+Uma vogal minúscula
+R: Char
+
+Título de um livro
+R: String
+
+Limite do cartão de crédito
+R: Float
+
+Horário de transmissão do jogo
+R: Date
+
+Altura de um prédio
+R: Float
+
+Páginas do caderno
+R: Integer
+
+Sala de reunião está disponível (ou ocupada)
+R: Boolean
+
+Alternativas do enunciado da questão de múltipla escolha
+R: Char (Enum)

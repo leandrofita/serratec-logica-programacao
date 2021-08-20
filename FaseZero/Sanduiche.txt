@@ -1,0 +1,14 @@
+INÍCIO
+Posicionar-se no ambiente de preparo;
+Localizar um prato, uma faca, um pão francês, algumas fatias de mortadela, uma garrafa de refrigerante mineirinho, um copo e uma mesa;
+Colocar o prato, a faca, o pão francês, as fatias de mortadela, o refrigerante mineirinho e o copo em cima da mesa;
+Pegar a faca e o pão francês;
+Cortar o pão francês em cima do prato;
+Colocar a faca na mesa;
+Pegar as fatias de mortadela;
+Colocar as fatias de mortadela dentro do pão francês;
+Colocar o pão francês em cima do prato;
+Pegar a garrafa do refrigerante;
+Abrir a garrafa do refrigerante;
+Despejar o refrigerante dentro do copo;
+FIM
