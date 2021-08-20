@@ -29,5 +29,9 @@ for (let index = 0; index < primeiroNome.length; index++)
 
 console.log(primeiroNome.sort().reverse());
 
+// var numeros = [2,5,9,6,4,6,8];
+
+// console.log(numeros.sort().reverse());
+
 
 
