@@ -3,18 +3,15 @@ var espirrou = true;
 const saudacoes = ["Bom dia!", "Boa tarde!", "Boa noite!"];
 const diasSemana = ["Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado", "Domingo"];
 
-diasSemana.forEach(dias)
-
-function dias(dia)
+diasSemana.forEach((dia) =>
 {
-    console.log(`${dia}: `);
-    saudacoes.forEach(saudar);
-}
+    console.log(`${dia}:`);
 
-function saudar(saudacao)
-{
-    console.log(saudacao);
-}
+    saudacoes.forEach((saudacao) =>
+    {
+        console.log(saudacao);
+    })
+})
 
 if (espirrou)
 {

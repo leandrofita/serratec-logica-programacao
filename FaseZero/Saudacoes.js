@@ -2,12 +2,10 @@ var espirrou = true;
 
 const saudacoes = ["Bom dia!", "Boa tarde!", "Boa noite!"];
 
-saudacoes.forEach(saudar);
-
-function saudar(saudacao)
+saudacoes.forEach((saudar) =>
 {
-    console.log(saudacao);  
-}
+    console.log(saudar);  
+});
 
 if (espirrou)
 {
