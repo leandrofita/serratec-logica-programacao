@@ -110,7 +110,7 @@
 
 **5. O que são as palavras reservadas da linguagem?**
 
->R: Palavras reservadas são termos utilizados pelas linguagens para realizar ou definir alguma função específica. Por exemplo: var, const, if, while, entre outros.
+>R: Palavras reservadas são termos utilizados pelas linguagens para realizar ou definir alguma finalidade específica. Por exemplo: var, const, if, while, for, entre outros.
 
 **6. Em programação, o que são variáveis?**
 
