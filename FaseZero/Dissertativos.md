@@ -24,7 +24,7 @@ Exemplo: Exercicio.js
 
 **5. Podemos dizer que a linguagem da máquina é a mesma linguagem de programação? Justifique.**
 
->R: Não. Podemos dizer que as linguagens são dividias em: baixo e alto nível. Linguagens de máquina são de baixo nível, as lingaugens de programação comulmente utilizadas são de alto nível. 
+>R: Não. Podemos dizer que as linguagens são dividias em: baixo e alto nível. Linguagens de máquina são de baixo nível, as lingaugens de programação comumente utilizadas são de alto nível. 
 
 **6. Segundo o professor, qual o percentual de importância do zero na programação?**
 

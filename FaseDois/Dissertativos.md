@@ -126,7 +126,9 @@
 
 **9. Posso criar duas variáveis como o mesmo “nome”, ou que, pelo menos para o programador, tenham o mesmo significado? Justifique.**
 
->R: No JavaScript, apesar de não apresentar nenhum erro ao criar uma segunda variável com o mesmo nome, a segunda variável substituirá a primeira. Nesse sentido podemos dizer que não é possível criar duas variáveis com o mesmo nome. Além disso, outras linguagens de programação sequer compilará o código, caso existam duas variáveis com o mesmo nome.
+>R: Segundo o documentação do JavaScript: *"A redeclaração de uma mesma variável **num mesmo escopo de bloco** causa um TypeError, no entanto, **corpos de funções** não possuem essa limitação!"*  
+>  
+>Além disso, é importante salientar que declarar variáveis com o mesmo nome e tipo, em corpos de funções e/ou classes ***diferentes***, é perfeitamente possível e comum na prática, afinal, seria praticamente impossível, inviável e ineficaz monitorar o nome de todas as variáveis de um sistema com o único objetivo de não repetir o nome. Ademais, quando utilizamos bibliotecas de terceiros, geralmente, não temos acesso ao código em si, apenas sua declaração, ou seja, não sabemos quais variáveis foram criadas, muito menos seu nome.
 
 **10. O que é uma atribuição?**
 
