@@ -2,3 +2,8 @@
 // Na carta você deve incluir as suas expectativas para o curso de programação e sua carreira nesta nova área. 
 // Seja criativo, lembre-se de incluir desafios e incentivos, para que o seu eu do futuro tenha orgulho de suas 
 // conquistas!
+
+
+const carta = 'Olá, Nathan do futuro! \n\nSe você está lendo essa carta, é porque você acabou de se formar no Serratec - 2021.2. \nParabéns! Você não fez mais do que sua obrigação. hahaha \n\nBrincadeiras a parte, estamos completando a primeira semana do curso e eu gostaria de compartilhar um pouco dos meus sentimentos e das minhas expectativas até agora. \nVocê sabe que não começamos o curso "do zero" com relação ao conhecimento em programação. Isso, de certa forma, está sendo excelente, pois estou conseguindo solidificar meus conhecimentos, contudo não posso deixar de mencionar que será um desafio: manter-me concentrado e não deixar com que a minha familiaridade com a informática me impeça de crescer e evoluir. \nAté o momento, o curso tem superado todas as minhas espectativas. Conheci muita gente legal, pessoas brilhantes, dedicadas, interessantes, diferentes e que não medem esforços para ajudar ao próximo. Com certeza, cultivarei essas amizades, afinal, muito provavelmente, seremos colegas de trabalho em um futuro iminente. \nFalando em trabalho, sinto que esse curso será o divisor de águas não somente da nossa vida, mas de todos a minha volta. Pensar que quatro meses de preparação intensiva podem trazer o conforto e a segurança que minha família merece me enche de alegria e vontade de proseguir. \nBom, é isso! Prometo que não vou desistir e nos vemos em breve! :) \n\nNathan Guimarães - 21/08/2021'
+
+console.log(carta);

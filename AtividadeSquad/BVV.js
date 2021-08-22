@@ -1,3 +1,13 @@
+/*
+ * Serratec
+ * Lógica de programação - Prof. Zepa
+ * Atividade: Elicitação de Requisitos
+ * Squad: Rock n' Beer
+ * Autor: Nathan Guimarães
+ * Data: 21/08/2021
+ * Descrição: <Enunciado aqui>
+*/
+
 class Usuario {
 
     constructor(nome, acoes){
