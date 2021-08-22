@@ -116,10 +116,10 @@ function selecaoDeOpcoes(){
         // Negociar Ações
         case "2" :
             {
-                //NegociarAcao()
                 negociarAcao();
             }
 
+        // Início
         default : 
             inicio();
     }
