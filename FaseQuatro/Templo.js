@@ -1,6 +1,8 @@
 // Em tempos de pandemia, só é permitido entrar em templos religiosos pessoas de máscara. Na portaria deve ser medida a temperatura à distância, e o valor não deve ultrapassar 37,5º.
 
-
+// Digite a temperatura: 36.9
+// Usa máscara (S ou N): N
+// Autorizar a entrada? False
 
 const PROMPT = require("prompt-sync")();
 
