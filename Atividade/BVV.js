@@ -1,16 +1,11 @@
 class Usuario {
 
-    constructor(nome, acao, carteira){
+    constructor(nome, acoes){
         this.nome = nome;
 
-        this.carteira = [];
-        if (carteira != undefined) {
-            this.carteira = carteira;
-        }
-
-        this.acao = [];
-        if (acao != undefined) {
-            this.acao.push(acao);
+        this.acoes = [];
+        if (acoes != undefined) {
+            this.acao.push(acoes);
         }
     }
 }
@@ -34,6 +29,7 @@ const mensagens = {
     neociacaoAcao: "=== Negociação de Ações. ===",
     comprarAcao: "=== Comprar Ações. ===",
     comprarEfetivada: "=== Compra efetivada com Sucesso! ===",
+    vendaEfetivada: "=== Venda efetivada com Sucesso! ===",
     venderAcao: "=== Vender Ações. ===",
 };
 
@@ -54,12 +50,6 @@ const codAcoes = {
     MGLU3: "MGLU3",
 }
 
-var VALE3 = new Acao(codAcoes.VALE3, randomico(100, false), randomico(100, true));
-var PETR4 = new Acao(codAcoes.PETR4, randomico(100, false), randomico(100, true));
-var ITUB4 = new Acao(codAcoes.ITUB4, randomico(100, false), randomico(100, true));
-var ABEV3 = new Acao(codAcoes.ABEV3, randomico(100, false), randomico(100, true));
-var MGLU3 = new Acao(codAcoes.MGLU3, randomico(100, false), randomico(100, true));
-
 var acoesDisponiveis = [new Acao(codAcoes.VALE3, randomico(100, false), randomico(100, true)),
                         new Acao(codAcoes.PETR4, randomico(100, false), randomico(100, true)),
                         new Acao(codAcoes.ITUB4, randomico(100, false), randomico(100, true)),
@@ -68,8 +58,6 @@ var acoesDisponiveis = [new Acao(codAcoes.VALE3, randomico(100, false), randomic
 
 
 var usuario = new Usuario();
-
-var opcaoSelecionada = 0;
 
 
 function lerEntrada(msg, breakLine, clear){
@@ -113,10 +101,10 @@ function randomico(max, decimal){
 
 function selecaoDeOpcoes(){
     
-    opcaoSelecionada = lerEntrada("", false, false);
+    var op = lerEntrada("", false, false);
 
     console.clear();
-    switch (opcaoSelecionada)
+    switch (op)
     {
         // Gerenciar carteira
         case "1" :
@@ -140,27 +128,17 @@ function selecaoDeOpcoes(){
 function gerenciarCarteira(){
 
     exibirMensagem(mensagens.gerenciamentoCarteira, true, true);
-
-    exibirMensagem(mensagens.escolher, true, false);
+    exibirMensagem(`Olá, ${usuario.nome}!`, true, false);
 
     // Apresentar Carteira
-    
-    if (usuario.acao.length > 0) {
-        usuario.acao.forEach((acao) =>{
+    listarAcoes(usuario.acoes);
 
-            if (acao == undefined) {
-                //console.log("AQUI!!!", acao);
-                //exibirMensagem("NENHUMA AÇÃO!", true, false);
-            }
-        });
-    }
-
-    let op = lerEntrada(`1 - ${opcoesMsg.retornarInicio}`, true, false);
+    var op = lerEntrada(`${usuario.acoes.length + 1} - ${opcoesMsg.retornarInicio}`, true, false);
 
     switch (op) {
 
         // Retornar ao início
-        case '1':
+        case (usuario.acoes.length + 1).toString():
             inicio();
             break;
     
@@ -189,6 +167,14 @@ function listarAcoes(lista){
 }
 
 function listarMinhasAcoes(lista){
+
+    var pos = lista.findIndex(acao => acao.qtd === 0);
+
+    // Deletar quantidades 0
+    if (pos != -1) {
+        lista.splice(pos, 1);
+    }
+
     for (let index = 0; index < lista.length; index++) {
         const element = lista[index];
         
@@ -209,7 +195,7 @@ function negociarAcao(){
     //exibirMensagem(`3 - ${opcoesMsg.retornarInicio}`, false, false);
 
 
-    let op = lerEntrada(`3 - ${opcoesMsg.retornarInicio}`, true, false);
+    var op = lerEntrada(`3 - ${opcoesMsg.retornarInicio}`, true, false);
 
     switch (op) {
 
@@ -238,7 +224,7 @@ function negociarAcao(){
 
 function efetivaCompra(index, qtd){
 
-    const pos = usuario.acao.findIndex( acao => acao.cod === acoesDisponiveis[index - 1].cod );
+    const pos = usuario.acoes.findIndex( acao => acao.cod === acoesDisponiveis[index - 1].cod );
 
     if (qtd > acoesDisponiveis[index - 1].qtd) {
         console.clear();
@@ -249,22 +235,21 @@ function efetivaCompra(index, qtd){
 
     if (pos != -1){
         acoesDisponiveis[index - 1].qtd -= qtd;
-        usuario.acao[pos].qtd += qtd;
+        usuario.acoes[pos].qtd += qtd;
     }
     else
     {
-        usuario.acao.push(new Acao(acoesDisponiveis[index - 1].cod, acoesDisponiveis[index - 1].qtd, acoesDisponiveis[index - 1].cotacao))
+        usuario.acoes.push(new Acao(acoesDisponiveis[index - 1].cod, qtd, acoesDisponiveis[index - 1].cotacao))
 
         acoesDisponiveis[index - 1].qtd -= qtd;
-
-        usuario.acao[usuario.acao.length-1].qtd = qtd;
+        //usuario.acoes[usuario.acoes.length - 1].qtd = qtd;
     }
 
     console.clear();
     exibirMensagem(mensagens.comprarEfetivada, true, false);
     
     exibirMensagem("Carteira de Ações: ", true, false);
-    listarMinhasAcoes(usuario.acao);
+    listarAcoes(usuario.acoes);
 
     lerEntrada("Pressione qualquer tecla para continuar!", true, false);
     comprarAcao();
@@ -290,7 +275,7 @@ function comprarAcao(){
     }
 
     console.log('\nInforme a quantiade desejada!');
-    let qtd = parseInt(lerEntrada("", false, false))
+    var qtd = parseInt(lerEntrada("", false, false))
 
     if (isNaN(qtd)) {
         console.log("Quantidade Inválida!");
@@ -308,31 +293,63 @@ function venderAcao(){
     exibirMensagem(mensagens.venderAcao, true, true);
     exibirMensagem(mensagens.escolher, true, false);
 
-
     // Listar ações disponíveis
+    listarAcoes(usuario.acoes);
 
-    if ((usuario.acao.length != 0) && usuario.acao[0] != undefined) {
-        listarAcoes(usuario.acao);
+    var op = lerEntrada(`${usuario.acoes.length + 1} - ${opcoesMsg.retornarInicio}`, true, false);
+
+    if (isNaN(op) || op == "" || (parseInt(op) <= 0) || (parseInt(op) >= usuario.acoes.length + 2) ) {
+        venderAcao();
     }
 
-    let op = lerEntrada(`99 - ${opcoesMsg.retornarInicio}`, true, false);
-    switch (op) {
+    if (parseInt(op) == usuario.acoes.length + 1) {
+        inicio();
+    }
 
-        // Vender Ação
-        case '1':
-            console.log("VENDENDO");
-            //comprarAcao();
-            break;
-        
-        // Retornar ao início
-        case '99':
-            inicio();            
-            break;
+    console.log('\nInforme a quantiade desejada!');
+    var qtd = parseInt(lerEntrada("", false, false))
+
+    if (isNaN(qtd)) {
+        console.log("Quantidade Inválida!");
+        lerEntrada("Pressione qualquer tecla para voltar!", true, false);
+        venderAcao();
+    }
+
+    // Vender
+    efetivaVenda(op, qtd);
+}
+
+function efetivaVenda(index, qtd){
+
+    // Procura acao pelo código
+    const pos = acoesDisponiveis.findIndex( acao => acao.cod === acoesDisponiveis[index - 1].cod );
+
+    if (qtd > usuario.acoes[index - 1].qtd) {
+        console.clear();
+        exibirMensagem("=== Quantidade superior ao limite! ===", true, true);
+        lerEntrada("Pressione qualquer tecla para retornar!", true, false);
+        venderAcao();
+    }
+
+    if (pos != -1){
+        usuario.acoes[index - 1].qtd -= qtd;
+        acoesDisponiveis[pos].qtd += qtd;
+    }
+    else
+    {
+        acoesDisponiveis.push(new Acao(usuario.acoes[index - 1].cod, qtd, usuario.acoes[index - 1].cotacao))
+        usuario.acoes[index - 1].qtd -= qtd;
+        //acoesDisponiveis[acoesDisponiveis.length-1].qtd = qtd;
+    }
+
+    console.clear();
+    exibirMensagem(mensagens.vendaEfetivada, true, false);
     
-        default:
-            venderAcao();
-            break;
-    }
+    exibirMensagem("Carteira de Ações: ", true, false);
+    listarAcoes(usuario.acoes);
+
+    lerEntrada("Pressione qualquer tecla para continuar!", true, false);
+    venderAcao();
 }
 
 function inicio(){
