@@ -1,3 +1,3 @@
 var  teste = -2;
-teste = +teste;
+teste = !teste;
 console.log(teste);

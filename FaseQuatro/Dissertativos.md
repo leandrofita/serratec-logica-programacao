@@ -101,11 +101,13 @@ F | F | V
 p | NOT
 --| --
 V | F
-F | F
+F | V
 
 **Quais os operadores aritméticos equivalentes aos lógicos?**
 
->R: multiplicação equivalente ao AND (&&), e soma é equivalente ao OR (||).
+>R: o operador de subtração (-) é equivalente ao operador lógico de negação (!) quando aplicado em apenas um operando númerico. É importante destacar que os operadores lógicos são aplicados apenas nos valores lógicos: true, false.
+
+multiplicação equivale ao AND (&&), e soma equivale ao OR (||).
 
 **Das palavras abaixo, informe os sinônimos dos operadores “e” e “ou”:**
     Ambos = E
@@ -155,14 +157,14 @@ F | F
 **Escreva a negação das expressões abaixo, aplicando antônimos nos substantivos ou adjetivos**
 
 + **Somos uma turma comunista, portanto o professor é o nosso supremo marechal e nos manda o que fazer.**
->R: Não somos uma turma capitalista, portanto o aluno não é o nosso ínfimo marechal ou não nos manda o que fazer. 
+>R: Não somos uma turma capitalista, portanto o professor não é o nosso ínfimo marechal ou não nos manda o que fazer. 
 
 + **O jovem passeava tranquilamente pelo parque carregando seu violino para a suave sinfonia.**
->R: O velho não passeava nervosamente pelo prisão carregando seu violoncelo para a berrante sinfonia.
+>R: O jovem não passeava nervosamente pelo parque carregando seu violino para a estritente sinfonia.
 
 + **Antes de escovar os dentes sempre usava o fio dental, mesmo assim ficaram amarelados.**
 
->R: Antes de escovar os dentes nunca usava o fio dental, mesmo assim ficaram amarelados.
+>R: Antes de escovar os dentes nunca usava o fio dental, mesmo assim não ficaram amarelados.
 
 
 **Com base no conceito da negação, escreva o masculino ou o feminino dos nomes.**
