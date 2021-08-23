@@ -140,9 +140,9 @@
 
 **12. Quando atribuímos um novo valor a uma variável, o que acontece com o valor que ela já possui?**
 
->*~~a. O primeiro valor é somado com o segundo valor.~~*  
-*~~b. O primeiro valor vai para a variável seguinte.~~*  
-<span style="color:lime">**c. O primeiro valor é perdido, pois uma atribuição é uma substituição.** 
+><span style="color:red">*~~a. O primeiro valor é somado com o segundo valor.~~*  
+<span style="color:red">*~~b. O primeiro valor vai para a variável seguinte.~~*  
+<span style="color:lime">**c. O primeiro valor é perdido, pois uma atribuição é uma substituição.✅** 
 
 
 **13. Qual a diferença do “ponto” e da “vírgula” no momento da escrita do código?**

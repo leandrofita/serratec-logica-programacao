@@ -34,11 +34,11 @@ menor ou igual a    | <=
 >R: No JavaScript é possível comparar strings, uma vez que a linguagem utilizará, para efeitos da comparação, o valor unicode da cadeia de caracteres.
 
 **Quais desses tipos de dados são ordinais?**
-+ <span style="color:red">~~*Inteiro*~~
++ <span style="color:lime">**Inteiro✅**
 + <span style="color:red">~~*Real*~~
-+ <span style="color:red">~~*Caractere*~~
-+ <span style="color:lime">**Cadeia** 
-+ <span style="color:red">~~*Lógico*~~
++ <span style="color:lime">**Caractere✅**
++ <span style="color:lime">**Cadeia✅** 
++ <span style="color:lime">**Lógico✅** 
 
 **Quais são os operadores aritméticos, e quais os operadores relacionais?**
 
