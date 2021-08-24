@@ -102,10 +102,10 @@ function escolherCedula(mensagem){
 // Validar cédula
 function validarCedula(){
     
-    while(cedulaValida == false){
+    while(!cedulaValida){
         cedulaValida = cedulaSuperior(cedulaIndexSelecionada-1);
 
-        if (cedulaValida == false){
+        if (!cedulaValida){
             cedulaIndexSelecionada = 0;
             escolherCedula("Cédula inválida! Escolha uma cédula superior ao valor do refrigerante!");
         }
@@ -125,7 +125,3 @@ function enviarTroco(troco){
 }
 
 escolherRefrigerante("Escolha um dos refrigerantes abaixo:  ");
-
-
-
-
