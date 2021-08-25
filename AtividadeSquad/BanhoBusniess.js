@@ -33,9 +33,6 @@ const mensagens = {
     desativado : "Chuveiro desativado! Obrigado pela preferência e volte sempre! :)",
 }
 
-var minutosComprados = undefined;
-
-
 // Exibir mensagens na tela
 function exibirMensagem(mensagem, space, clear){
     if (clear) {
@@ -63,7 +60,7 @@ function somenteNumero(numero, zeroIncluso, limiteOpcoes){
         return (numero === "" || numero <= 0 || numero > limiteOpcoes || isNaN(numero) || numero == undefined) ? false : true;
 }
 
-function temporizarBanho(){
+function temporizarBanho(minutosComprados){
     exibirMensagem(mensagens.boasVindas, true, true);
     exibirMensagem(mensagens.banhando, true, false);
 
@@ -75,17 +72,18 @@ function temporizarBanho(){
     exibirMensagem(mensagens.desativado, true, false);
 }
 
-function comprarBanho(){
+function comprarBanho(minutosComprados){
     exibirMensagem(mensagens.boasVindas, true, true);
     exibirMensagem(mensagens.compraEfetivada, true, false);
     exibirMensagem(`> Banho de ${minutosComprados} minutos - R$${(precoPorMinuto * minutosComprados).toFixed(2)}`, true, false);
 
     lerEntrada(mensagens.ligarChuveiro,true,false);
 
-    temporizarBanho();
+    temporizarBanho(minutosComprados);
 }
 
 function escolherBanho(){
+    var minutosComprados = undefined;
 
     while (!somenteNumero(minutosComprados, false, tempoLimite)) {
         exibirMensagem(mensagens.boasVindas, true, true);
@@ -96,7 +94,7 @@ function escolherBanho(){
         minutosComprados = lerEntrada("", true, false);
     }
 
-    comprarBanho();
+    comprarBanho(minutosComprados);
 }
 
 function seguirViagem(){
@@ -131,7 +129,6 @@ function inicio(){
             break;
     }
 }
-
 
 // Início
 inicio();
