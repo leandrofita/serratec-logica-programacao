@@ -75,11 +75,11 @@ const codAcoes = {
     MGLU3: "MGLU3",
 }
 
-var acoesDisponiveis = [new Acao(codAcoes.VALE3, randomico(100, false), randomico(100, true)),
-                        new Acao(codAcoes.PETR4, randomico(100, false), randomico(100, true)),
-                        new Acao(codAcoes.ITUB4, randomico(100, false), randomico(100, true)),
-                        new Acao(codAcoes.ABEV3, randomico(100, false), randomico(100, true)),
-                        new Acao(codAcoes.MGLU3, randomico(100, false), randomico(100, true))]
+var acoesDisponiveis = [new Acao(codAcoes.VALE3, randomico(1, 100, false), randomico(1, 100, true)),
+                        new Acao(codAcoes.PETR4, randomico(1, 100, false), randomico(1, 100, true)),
+                        new Acao(codAcoes.ITUB4, randomico(1, 100, false), randomico(1, 100, true)),
+                        new Acao(codAcoes.ABEV3, randomico(1, 100, false), randomico(1, 100, true)),
+                        new Acao(codAcoes.MGLU3, randomico(1, 100, false), randomico(1, 100, true))]
 
 
 var usuario = new Usuario();
@@ -123,13 +123,16 @@ function cadastrarUsuario(){
     usuario.nome = nome;
 }
 
-function randomico(max, decimal){
-
+// Sorteia um número 
+// Parâmetros: min (int) = valor mínimo
+//             max (int) = valor máximo
+//             decimal (int) = valor decimal
+function randomico(min, max, decimal){
     if (decimal) {
-        return (Math.random() * max + 1).toFixed(2);
+        return ((Math.random() * (max - min + 1)) + min).toFixed(2);
     }
 
-    return (Math.floor(Math.random() * max + 1));
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 function selecaoDeOpcoes(){
@@ -366,12 +369,18 @@ function efetivaVenda(index, qtd){
 
     if (pos != -1){
         usuario.acoes[index - 1].qtd -= qtd;
+        console.log(acoesDisponiveis[pos].qtd);
         acoesDisponiveis[pos].qtd += qtd;
+        console.log(acoesDisponiveis[pos].qtd);
+        PROMPT();
+
     }
     else
     {
         acoesDisponiveis.push(new Acao(usuario.acoes[index - 1].cod, qtd, usuario.acoes[index - 1].cotacao))
         usuario.acoes[index - 1].qtd -= qtd;
+        console.log(acoesDisponiveis[acoesDisponiveis.length-1]);
+        PROMPT();
         //acoesDisponiveis[acoesDisponiveis.length-1].qtd = qtd;
     }
 
