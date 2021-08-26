@@ -19,18 +19,25 @@ cada cômodo que for da sua escolha
 */
 
 const prompt = require('prompt-sync')();
+const ITENS = [
+  "1 - Quarto",
+  "2 - Sala de estar",
+  "3 - Cozinha",
+  "4 - Baheiro",
+  "5 - Garagem",
+]
 
 console.log('Informe o número, por favor.');
-console.log('(1) Quarto');
-console.log('(2) Sala de estar');
-console.log('(3) Cozinha');
-console.log('(4) Banheiro');
-console.log('(5) Garagem');
+console.log(ITENS);
+// console.log('(1) Quarto');
+// console.log('(2) Sala de estar');
+// console.log('(3) Cozinha');
+// console.log('(4) Banheiro');
+// console.log('(5) Garagem');
 
-var resposta = prompt('Sua resposta: '),
-  num = parseInt(resposta),
-  comodos = ['quarto', 'sala de estar', 'cozinha', 'banheiro', 'garagem'],
-  comodoSelecionado = comodos[num - 1];
+var resposta = parseInt(prompt('Sua resposta: '));
+var comodos = ['quarto', 'sala de estar', 'cozinha', 'banheiro', 'garagem'];
+var comodoSelecionado = comodos[resposta - 1];
 
 console.log(comodoSelecionado + ': está limpo?');
 console.log('(1) Sim');
@@ -41,12 +48,12 @@ var limpo = prompt('Sua resposta: '),
 
 if (numLimpo == 1) {
   console.log(
-    comodos[num - 1].toUpperCase() +
+    comodos[resposta - 1].toUpperCase() +
       ', esta limpo! Logo, você não precisa limpar!'
   );
 } else if (numLimpo == 2) {
   console.log(
-    comodos[num - 1].toUpperCase() +
+    comodos[resposta - 1].toUpperCase() +
       ', não esta limpo! Logo, você precisará limpar!'
   );
 } else {
