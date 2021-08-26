@@ -18,10 +18,21 @@
 
 const prompt = require("prompt-sync")();
 
+const ITENS = [
+  "Café",
+  "Paçoca",
+  "Balas",
+  "Jujubas",
+  "Bombons",
+]
+
 function processarPedido(seuPedido) {
-  pedidoM = seuPedido.toUpperCase();
-  console.log(pedidoM + "!");
-  switch (pedidoM) {
+  seuPedido = seuPedido.toUpperCase();
+
+  console.log(seuPedido + "!");
+
+  var temosOuNao = false;
+  switch (seuPedido) {
     case "BALAS":
       temosOuNao = true;
       break;
@@ -40,17 +51,17 @@ function processarPedido(seuPedido) {
   }
   return temosOuNao;
 }
-console.log(
-  "===============\n=|BARRAQUINHA|=\n=|    DO     |=\n=|   ZEPA    |=\n===============\n"
-);
-console.log(
-  "Seja bem-vindo a Barraquinha do Zepa.\nNós trabalhamos com:\n-Café\n-Paçoca\n-Balas\n-Jujubas\n-Bombons"
-);
 
-var pedido = prompt("O que deseja das nossas guloseimas?");
+console.log("\n === BARRAQUINHO DO ZEPA === \n");
+console.log("Seja bem-vindo a Barraquinha do Zepa.\n");
+
+console.log(ITENS);
+
+var pedido = prompt("Digite o número do item desejado: ").toUpperCase();
 
 do {
   var venda = processarPedido(pedido);
+  
   if (!venda) {
     console.log(
       "Poxa, sinto muito mas nós infelizmente não temos " +
@@ -59,14 +70,11 @@ do {
         pedido +
         " sempre que tem, eu não sossego até acabar."
     );
-    var pedido = prompt(
-      "Teria alguma outra das nossas guloseimas que você gostaria?"
-    );
+    var pedido = prompt("Teria alguma outra das nossas guloseimas que você gostaria?");
     var venda = processarPedido(pedido);
   }
+
   if (venda) {
-    console.log(
-      "Aqui está o seu pedido de " + pedido + ". Muito obrigado e volte sempre"
-    );
+    console.log(`Aqui está o seu pedido de ${pedido}. Muito obrigado e volte sempre`);
   }
 } while (!venda);

@@ -3,7 +3,9 @@ const prompt = require("prompt-sync")();
 const ANIMAIS = [
   "1 - Cachorro",
   "2 - Gato",
-
+  "3 - Vaca",
+  "4 - Galo",
+  "5 - Porco",
 ];
 
 console.log(`Olá. Você já sonhou com animais? Como sou uma IA, eu vivo com a cabeça na nuvem e com usso passam vários animaos na minha cabeça.
