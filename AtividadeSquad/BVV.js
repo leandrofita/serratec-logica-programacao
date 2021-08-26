@@ -1,12 +1,27 @@
-/*
- * Serratec
- * Lógica de programação - Prof. Zepa
- * Atividade: Elicitação de Requisitos
- * Squad: Rock n' Beer
- * Autor: Nathan Guimarães
- * Data: 21/08/2021
- * Descrição: <Enunciado aqui>
-*/
+// # Serratec
+//  * Lógica de Programação - Prof. Moises do Amaral Baddini
+//  * Atividade: Elicitação de Requisitos
+//  * Squad: Rock n' Beer
+//  * Autor (Descrição): Nathan Guimarães
+//  * Título: BVV - Bolsa de Valores Virtual 📈
+//  * Arquivo: BVV.js
+//  * Elaboração do Requsito: 20/08/2021
+
+// ## Descrição:
+// A BVV (Bolsa de Valores Virtual) é um sistema de negociação (compra e venda) de ações e controle de carteira do usuário.
+// Na entrevista com o cliente, ficou decidido que a primeira versão do sistema deverá conter as seguintes opções e funcionalidades:
+
+// • Informações do Usuário: 
+//     Nome do usuário;
+//     Carteira de ações do usuário (código, preço e quantidade de cada ação);
+    
+// • Balcão de Negócios:
+//     Comprar ação;
+//     Vender ação;
+//     Lista das ações disponíveis para negociação (código, preço e quantidade de cada ação disponível para negociação);
+
+// ## Orientações:
+// Os códigos de cada ação são representados por três letras maiúsculas seguidas de um número (VALE3, PETR4, ITUB4, ABEV3, MGLU3 etc.);
 
 class Usuario {
 
@@ -86,6 +101,14 @@ function exibirMensagem(mensagem, space, clear){
     if (space) {
         console.log();
     }
+}
+
+// Permitir entrada apenas de números.
+function somenteNumero(numero, zeroIncluso, limiteOpcoes){
+    if (zeroIncluso)
+        return (numero === "" || isNaN(numero) || numero == undefined) ? false : true;
+    else
+        return (numero === "" || numero <= 0 || numero > limiteOpcoes || isNaN(numero) || numero == undefined) ? false : true;
 }
 
 function cadastrarUsuario(){

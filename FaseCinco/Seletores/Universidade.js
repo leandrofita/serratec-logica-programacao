@@ -6,7 +6,7 @@
 // Desconto na próxima mensalidade? true
 
 const PROMPT = require("prompt-sync")();
-const dataAtual = new Date().getDate();
+const DATAATUAL = new Date().getDate();
 
 console.log("=== Universidade ===");
 
@@ -14,7 +14,7 @@ var numeroBoleto = PROMPT("Informe o número do boleto: ");
 var diaPagamento = PROMPT("Informe o dia do pagamento: ");
 var desconto = (diaPagamento >= 10 && diaPagamento <= 13) ? true : false
 
-console.log("\nDia hoje: ", dataAtual);
+console.log("\nDia hoje: ", DATAATUAL);
 console.log("Número do Boleto: ", numeroBoleto);
 console.log("Dia do pagamento: ", diaPagamento);
 console.log("Desconto na próxima mensalidade? ", desconto);

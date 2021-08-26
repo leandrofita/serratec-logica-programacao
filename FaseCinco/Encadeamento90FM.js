@@ -1,5 +1,5 @@
 const PROMPT = require("prompt-sync")();
-const resposta = "42";
+const RESPOSTA = "42";
 var respostaUsuarios = [];
 
 // Usuários
@@ -9,7 +9,7 @@ for (let i = 0; i < 3; i++) {
     for (let j = 0; j < 2; j++) {
         chances++;
         respostaUsuarios[i] = PROMPT(`Olá, ${i+1}º ouvinte! Qual sua resposta?`);
-        if (respostaUsuarios[i] == resposta) {
+        if (respostaUsuarios[i] == RESPOSTA) {
             console.log("Parabéns! Você ganhou!");
             break;}
         else{

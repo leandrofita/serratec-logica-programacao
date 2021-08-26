@@ -1,3 +1,24 @@
+// Serratec - Lógica de programação - 2021.2
+// Professor: Moisés do Amaral Baddini.
+// Atividade: Elicitação de requisitos.
+// Squad: Esquadrão TICida.
+// Componentes: Carolina Tardin, Carlos Alberto Rodrigues, Diego Faria, Gilnei Lima, Leandro Fita, Marcella Alzuguir
+// Autor da proposta: Leandro Fita
+// Data: 21/08/2021
+
+// Máquina de Refrigerantes.
+// Uma famosa empresa de refrigerantes precisa de um software para rodar no console das suas novas máquinas pela cidade. O cliente precisa que o console máquina de refrigerante exiba quatro opções de sabores diferentes, ficando a critério do(a) desenvolvedor(a) exibir os preços dos refrigerantes junto com o sabor ou exibir o preço do refrigerante escolhido em uma tela posterior. Caso opte por exibir o valor do produto escolhido em uma tela posterior, será necessário acrescentar uma opção para o usuário voltar para a tela de escolha de sabores após verificar o preço do produto escolhido. Após a tela de escolha, o software deve exibir uma tela para pagamentos apresentando quatro opções de cédulas. Após o cliente escolher a opção de pagamento, o programa deve exibir uma mensagem com o troco a ser devolvido para o cliente. Porém, caso o valor da cédula escolhida seja inferior ao valor do refrigerante, o programa deve exibir uma mensagem de valor inválido e retornar o usuário novamente para a tela de escolha das cédulas até que uma opção de pagamento válida seja escolhida.
+// Os refrigerantes possuem os seguintes preços:
+// •    R$ 1,99
+// •    R$ 3,50
+// •    R$3,99
+// •    R$6,00
+// O cliente deseja opções de pagamentos com as seguintes cédulas:
+// •    R$ 2,00
+// •    R$5,00
+// •    R$10,00
+// •    R$20,00
+
 const PROMPT = require("prompt-sync")();
 
 const cedulas = [
