@@ -8,11 +8,19 @@
 const PROMPT = require("prompt-sync")();
 
 var altura = parseInt(PROMPT("Digite o número da altura da pirâmide: "));
-
 var texto = "";
-for (let i = 1; i <= altura; i++) {
-    for (let j = 0; j < i; j++) {
-        texto += "D";   
+
+
+//Linhas
+for (let i = 0; i <= altura; i++) {
+    
+     // Space
+     for (let x = altura-i; x > 0; x--) {
+        texto += " "; 
+    }
+
+    for (let y = 0; y < i; y++) {
+        texto += "D ";  
     }
     console.log(texto);             
     texto = "";
