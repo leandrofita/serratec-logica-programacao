@@ -26,7 +26,7 @@ var podeDoar = true;
 var respostas = [];
 
 console.clear();
-console.log("== Banco de Sangue 2.0 == \nDigite “Sim” ou “Não” nas restrições a seguir\n");
+console.log("== Banco de Sangue 2.0 == \nDigite “S” ou “N” nas restrições a seguir\n");
 
 for (let index = 0; index < PERGUNTAS.length; index++) {
     const pergunta = PERGUNTAS[index];
