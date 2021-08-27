@@ -8,9 +8,10 @@ var numero  = parseInt(PROMPT("Informe um número inteiro: "));
 var soma = 0;
 
 for (let index = numero; index > 0; index--) {
-    numeros.push(index);    
+    //numeros.push(index); 
+    console.log(index);   
     soma += index;
 }
 
-console.log(numeros);
+//console.log(numeros);
 console.log(`A soma dos números de 1 até ${numero} é: ${soma}`);
