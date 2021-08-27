@@ -14,40 +14,29 @@ console.log("== Par ou Ímpar == \n");
 var jogadorUm = [];
 var jogadorDois = [];
 
-
 function randomico(min, max, decimal){
     if (decimal) {
         return ((Math.random() * (max - min + 1)) + min).toFixed(2);
     }
-
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
 if (randomico(0, 1, false) == 0){
     jogadorUm.push((PROMPT(`Jogador Um, digite 'par' ou 'impar': `)).toLowerCase()) 
-    jogadorDois.push("impar");
+    jogadorDois[0] = (jogadorUm[0] == 'par') ? 'impar' : 'par';
 }
 else{
     jogadorDois.push((PROMPT(`Jogador Dois, digite 'par' ou 'impar': `)).toLowerCase()) 
-    jogadorUm.push("impar");
+    jogadorUm[0] = (jogadorDois[0] == 'par') ? 'impar' : 'par';
 }    
 
-jogadorUm.push(parseInt(PROMPT(`Jogador Um, digite seu número: `)));
-console.log(`AJogador Um digitou: ${jogadorUm[1]}`);
-jogadorDois.push(parseInt(PROMPT(`Jogador Dois, digite seu número: `)));
-console.log(`BJogador Um digitou: ${jogadorDois[1]}`);
+jogadorUm[1] = (parseInt(PROMPT(`Jogador Um, digite seu número: `)));
+console.log(`Jogador Um digitou: ${jogadorUm[1]}`);
 
-if (jogadorUm[0] == "impar") {
-    if ((((jogadorUm[1] + jogadorDois[1])) % 2) != 0) {
-        console.log(`CJogador Um é o vencedor! Resultado: ${jogadorUm[1] + jogadorDois[1]}`);
-    }
-    else{
-        console.log(`DJogador Dois é o vencedor! Resultado: ${jogadorUm[1] + jogadorDois[1]}`);
-    }
-}
-else if ((jogadorUm[1] + jogadorDois[1]) % 2 == 0) {
-    console.log(`EJogador Um é o vencedor! Resultado: ${jogadorUm[1] + jogadorDois[1]}`);
-}
-else{
-    console.log(`FJogador Dois é o vencedor! Resultado: ${jogadorUm[1] + jogadorDois[1]}`);
-}
+jogadorDois[1] = (parseInt(PROMPT(`Jogador Dois, digite seu número: `)));
+console.log(`Jogador Dois digitou: ${jogadorDois[1]}`);
+
+var resultado = ((jogadorUm[1] + jogadorDois[1]) % 2) == 0 ? "par" : "impar";
+var vencedor = (resultado == jogadorUm[0]) ? "Um" : "Dois";
+
+console.log(`A soma é: ${jogadorUm[1] + jogadorDois[1]}, ou seja, ${resultado}. Portanto, o jogador ${vencedor} venceu!`);
