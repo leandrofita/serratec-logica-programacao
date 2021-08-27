@@ -1,6 +1,6 @@
 # BVV - Bolsa de Valores Virtual 📈
 
-**Lógica de Programação:**** Prof. Moises do Amaral Baddini  
+**Lógica de Programação:** Prof. Moises do Amaral Baddini  
 **Atividade:** Elicitação de Requisitos  
 **Squad:** Rock n' Beer  
 **Autor (Descrição):** Nathan Guimarães  
