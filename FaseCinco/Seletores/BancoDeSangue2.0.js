@@ -31,9 +31,11 @@ console.log("== Banco de Sangue 2.0 == \nDigite “Sim” ou “Não” nas rest
 for (let index = 0; index < PERGUNTAS.length; index++) {
     const pergunta = PERGUNTAS[index];
     
-    respostas[index] = PROMPT(pergunta);
+    respostas[index] = PROMPT(pergunta).toUpperCase();
     
-    if (respostas[index] == "Sim") {
+    var primeiraLetra = respostas[index].toString()[0].toUpperCase(); // Retorna primeira letra da string resposta.
+
+    if (primeiraLetra.toUpperCase() == "S".toUpperCase()) {
         podeDoar = false;
         break;
     }
