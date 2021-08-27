@@ -28,9 +28,11 @@
 + **Balcão de Negócios:**  
     + Comprar ação;
     + Vender ação;
-    + Lista das ações disponíveis para negociação (código, preço e quantidade de cada ação disponível para negociação);
+    + Lista das ações disponíveis para negociação (código, preço e quantidade de cada ação disponível para negociação);  
 
-## ORIENTAÇÕES:
+<br>
+
+**ORIENTAÇÕES:**
 
 >Os códigos de cada ação são representados por três letras maiúsculas seguidas de um número (VALE3, PETR4, ITUB4, ABEV3, MGLU3 etc.);
 
