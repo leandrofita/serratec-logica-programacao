@@ -46,7 +46,7 @@ class Acao {
 
 const PROMPT = require("prompt-sync")();
 
-const mensagens = {
+const MENSAGENS = {
     boasVindas: "=== Seja bem-vindo a BVV - Bolsa de Valores Virtual ===",
     escolher : "Escolha uma das opções abaixo:",
     cadUsuario: "Olá! Por favor, insira seu nome completo.",
@@ -56,18 +56,20 @@ const mensagens = {
     comprarEfetivada: "=== Compra efetivada com Sucesso! ===",
     vendaEfetivada: "=== Venda efetivada com Sucesso! ===",
     venderAcao: "=== Vender Ações. ===",
+    limiteSuperior = "=== Quantidade superior ao limite! ===",
 };
 
-const opcoesMsg = {
+const OPCOESMSG = {
     cadastrar: "Cadastrar-se.",
     carteira: "Visualizar carteira de ações.",
     retornarInicio: "Retornar ao menu principal.",
+    qualquerTecla: "Pressione qualquer tecla para continuar!",
     negociacao: "Negociar ações.",
     comprar : "Comprar ações",
     vender : "Vender ações",
 };
 
-const codAcoes = {
+const CODACOES = {
     VALE3: "VALE3",
     PETR4: "PETR4",
     ITUB4: "ITUB4",
@@ -75,14 +77,12 @@ const codAcoes = {
     MGLU3: "MGLU3",
 }
 
-var acoesDisponiveis = [new Acao(codAcoes.VALE3, randomico(1, 100, false), randomico(1, 100, true)),
-                        new Acao(codAcoes.PETR4, randomico(1, 100, false), randomico(1, 100, true)),
-                        new Acao(codAcoes.ITUB4, randomico(1, 100, false), randomico(1, 100, true)),
-                        new Acao(codAcoes.ABEV3, randomico(1, 100, false), randomico(1, 100, true)),
-                        new Acao(codAcoes.MGLU3, randomico(1, 100, false), randomico(1, 100, true))]
+var acoesDisponiveis = [new Acao(CODACOES.VALE3, randomico(1, 100, false), randomico(1, 100, true)),
+                        new Acao(CODACOES.PETR4, randomico(1, 100, false), randomico(1, 100, true)),
+                        new Acao(CODACOES.ITUB4, randomico(1, 100, false), randomico(1, 100, true)),
+                        new Acao(CODACOES.ABEV3, randomico(1, 100, false), randomico(1, 100, true)),
+                        new Acao(CODACOES.MGLU3, randomico(1, 100, false), randomico(1, 100, true))]
 
-
-var usuario = new Usuario();
 
 
 function lerEntrada(msg, breakLine, clear){
@@ -114,7 +114,7 @@ function somenteNumero(numero, zeroIncluso, limiteOpcoes){
 function cadastrarUsuario(){
     
     console.clear();
-    var nome = lerEntrada(mensagens.cadUsuario, true, false);
+    var nome = lerEntrada(MENSAGENS.cadUsuario, true, false);
     
     if (nome == "") {
         cadastrarUsuario();
@@ -163,13 +163,13 @@ function selecaoDeOpcoes(){
 
 function gerenciarCarteira(){
 
-    exibirMensagem(mensagens.gerenciamentoCarteira, true, true);
+    exibirMensagem(MENSAGENS.gerenciamentoCarteira, true, true);
     exibirMensagem(`Olá, ${usuario.nome}!`, true, false);
 
     // Apresentar Carteira
     listarAcoes(usuario.acoes);
 
-    var op = lerEntrada(`${usuario.acoes.length + 1} - ${opcoesMsg.retornarInicio}`, true, false);
+    var op = lerEntrada(`${usuario.acoes.length + 1} - ${OPCOESMSG.retornarInicio}`, true, false);
 
     switch (op) {
 
@@ -222,28 +222,26 @@ function listarMinhasAcoes(lista){
 
 function negociarAcao(){
     
-    exibirMensagem(mensagens.neociacaoAcao, true, true);
+    exibirMensagem(MENSAGENS.neociacaoAcao, true, true);
 
-    exibirMensagem(mensagens.escolher, true, false);
+    exibirMensagem(MENSAGENS.escolher, true, false);
 
-    exibirMensagem(`1 - ${opcoesMsg.comprar}`, false, false);
-    exibirMensagem(`2 - ${opcoesMsg.vender}`, false, false);
+    exibirMensagem(`1 - ${OPCOESMSG.comprar}`, false, false);
+    exibirMensagem(`2 - ${OPCOESMSG.vender}`, false, false);
     //exibirMensagem(`3 - ${opcoesMsg.retornarInicio}`, false, false);
 
 
-    var op = lerEntrada(`3 - ${opcoesMsg.retornarInicio}`, true, false);
+    var op = lerEntrada(`3 - ${OPCOESMSG.retornarInicio}`, true, false);
 
     switch (op) {
 
         // Comprar Ação
         case '1':
-            console.log("COMPRANDO");
             comprarAcao();
             break;
         
         // Vender Ação
         case '2':
-            console.log("VENDENDO");
             venderAcao();
             break;
         
@@ -264,8 +262,8 @@ function efetivaCompra(index, qtd){
 
     if (qtd > acoesDisponiveis[index - 1].qtd) {
         console.clear();
-        exibirMensagem("=== Quantidade superior ao limite! ===", true, true);
-        lerEntrada("Pressione qualquer tecla para retornar!", true, false);
+        exibirMensagem(MENSAGENS.limiteSuperior, true, true);
+        lerEntrada(OPCOESMSG.qualquerTecla, true, false);
         comprarAcao();
     }
 
@@ -282,25 +280,25 @@ function efetivaCompra(index, qtd){
     }
 
     console.clear();
-    exibirMensagem(mensagens.comprarEfetivada, true, false);
+    exibirMensagem(MENSAGENS.comprarEfetivada, true, false);
     
     exibirMensagem("Carteira de Ações: ", true, false);
     listarAcoes(usuario.acoes);
 
-    lerEntrada("Pressione qualquer tecla para continuar!", true, false);
+    lerEntrada(OPCOESMSG.qualquerTecla, true, false);
     comprarAcao();
 }
 
 function comprarAcao(){
     
     console.clear();
-    exibirMensagem(mensagens.comprarAcao, true, true);
-    exibirMensagem(mensagens.escolher, true, false);
+    exibirMensagem(MENSAGENS.comprarAcao, true, true);
+    exibirMensagem(MENSAGENS.escolher, true, false);
 
     // Listar ações disponíveis
     listarAcoes(acoesDisponiveis);
     
-    var op = lerEntrada(`${acoesDisponiveis.length + 1} - ${opcoesMsg.retornarInicio}`, true, false);
+    var op = lerEntrada(`${acoesDisponiveis.length + 1} - ${OPCOESMSG.retornarInicio}`, true, false);
 
     if (isNaN(op) || op == "" || (parseInt(op) <= 0) || (parseInt(op) >= acoesDisponiveis.length + 2) ) {
         comprarAcao();
@@ -326,13 +324,13 @@ function comprarAcao(){
 function venderAcao(){
 
     console.clear();
-    exibirMensagem(mensagens.venderAcao, true, true);
-    exibirMensagem(mensagens.escolher, true, false);
+    exibirMensagem(MENSAGENS.venderAcao, true, true);
+    exibirMensagem(MENSAGENS.escolher, true, false);
 
     // Listar ações disponíveis
     listarAcoes(usuario.acoes);
 
-    var op = lerEntrada(`${usuario.acoes.length + 1} - ${opcoesMsg.retornarInicio}`, true, false);
+    var op = lerEntrada(`${usuario.acoes.length + 1} - ${OPCOESMSG.retornarInicio}`, true, false);
 
     if (isNaN(op) || op == "" || (parseInt(op) <= 0) || (parseInt(op) >= usuario.acoes.length + 2) ) {
         venderAcao();
@@ -362,7 +360,7 @@ function efetivaVenda(index, qtd){
 
     if (qtd > usuario.acoes[index - 1].qtd) {
         console.clear();
-        exibirMensagem("=== Quantidade superior ao limite! ===", true, true);
+        exibirMensagem(MENSAGENS.limiteSuperior, true, true);
         lerEntrada("Pressione qualquer tecla para retornar!", true, false);
         venderAcao();
     }
@@ -373,7 +371,6 @@ function efetivaVenda(index, qtd){
         acoesDisponiveis[pos].qtd += qtd;
         console.log(acoesDisponiveis[pos].qtd);
         PROMPT();
-
     }
     else
     {
@@ -385,12 +382,12 @@ function efetivaVenda(index, qtd){
     }
 
     console.clear();
-    exibirMensagem(mensagens.vendaEfetivada, true, false);
+    exibirMensagem(MENSAGENS.vendaEfetivada, true, false);
     
     exibirMensagem("Carteira de Ações: ", true, false);
     listarAcoes(usuario.acoes);
 
-    lerEntrada("Pressione qualquer tecla para continuar!", true, false);
+    lerEntrada(OPCOESMSG.qualquerTecla, true, false);
     venderAcao();
 }
 
@@ -398,7 +395,7 @@ function inicio(){
 
     console.clear();
 
-    exibirMensagem(mensagens.boasVindas, true);
+    exibirMensagem(MENSAGENS.boasVindas, true);
 
     // Novo usuário
     if (usuario.nome == undefined) 
@@ -411,12 +408,14 @@ function inicio(){
     {
         exibirMensagem(`Olá, ${usuario.nome}!`, true);
 
-        exibirMensagem(mensagens.escolher, true, false);
-        exibirMensagem(`1 - ${opcoesMsg.carteira}`, false, false);
-        exibirMensagem(`2 - ${opcoesMsg.negociacao}`, false, false);
+        exibirMensagem(MENSAGENS.escolher, true, false);
+        exibirMensagem(`1 - ${OPCOESMSG.carteira}`, false, false);
+        exibirMensagem(`2 - ${OPCOESMSG.negociacao}`, false, false);
 
         selecaoDeOpcoes();
     }
 }
+
+var usuario = new Usuario();
 
 inicio();
