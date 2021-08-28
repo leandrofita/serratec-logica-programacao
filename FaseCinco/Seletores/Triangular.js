@@ -24,5 +24,5 @@ else if ((primeiro == segundo) || (primeiro == terceiro) || (segundo == terceiro
 }
 // Equilátero
 else if (primeiro == segundo == terceiro) {
-    console.log(`O triângulo de medidas: ${primeiro}, ${segundo}, ${terceiro} é um triângulo Isósceles`);
+    console.log(`O triângulo de medidas: ${primeiro}, ${segundo}, ${terceiro} é um triângulo Equilátero`);
 }
