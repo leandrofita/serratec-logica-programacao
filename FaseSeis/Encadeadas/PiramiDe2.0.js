@@ -8,6 +8,7 @@
 const PROMPT = require("prompt-sync")();
 
 var altura = parseInt(PROMPT("Digite o número da altura da pirâmide: "));
+var caractere = prompt("Qual caractere deseja utilizar? -> ");
 var texto = "";
 
 
@@ -20,7 +21,7 @@ for (let i = 0; i <= altura; i++) {
     }
 
     for (let y = 0; y < i; y++) {
-        texto += "D ";  
+        texto += caractere + " ";  // para alinhar a pirâmide de acordo com o enunciado.
     }
     console.log(texto);             
     texto = "";
