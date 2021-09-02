@@ -10,11 +10,17 @@ while (true) {
 
     texto = ""
 
-    for (let index = limiteMin; index <= limiteMax; index++) {
-        //Par
-        if (index % 2 == 0) {
-            texto += (index != limiteMax) ? index + "," : index;
-        }
+    // Verifica se é par
+    // for (let index = limiteMin; index <= limiteMax; index++) {
+    //     //Par
+    //     if (index % 2 == 0) {
+    //         texto += (index != limiteMax) ? index + "," : index;
+    //     }
+    // }
+
+    // Iteração por 2
+    for (let index = limiteMin; index <= limiteMax; index+=2) {
+        texto += (index != limiteMax) ? index + "," : index;
     }
 
     console.log(texto + ".");
