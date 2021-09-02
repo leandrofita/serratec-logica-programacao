@@ -1,13 +1,9 @@
-// “No abecedário da Xuxa, vamos aprender!” Lembra da música? Então, crie um programa que recebe uma letra maiúscula e canta sua “definição musical”.
-// Letra: C
-// C de coração!
+// O abecedário da Xuxa agora segue cantando a definição musical até que a criança decida parar de ouvir, pressionando o zero.
 
 // Pimentinha:
 // Aceitar tanto letras maiúsculas como minúsculas.
 
 const PROMPT = require("prompt-sync")();
-
-
 
 var repetir = true;
 
