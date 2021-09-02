@@ -57,7 +57,7 @@ console.log("Seja bem-vindo a Barraquinha do Zepa.\n");
 
 console.log(ITENS);
 
-var pedido = prompt("Digite o número do item desejado: ").toUpperCase();
+var pedido = prompt("Digite o item desejado: ").toUpperCase();
 
 do {
   var venda = processarPedido(pedido);
