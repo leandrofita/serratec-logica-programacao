@@ -13,7 +13,7 @@ while (true) {
     for (let index = limiteMin; index <= limiteMax; index++) {
         //Par
         if (index % 2 == 0) {
-            texto = (index != limiteMax) ? texto + index + "," : texto + index;
+            texto += (index != limiteMax) ? index + "," : index;
         }
     }
 
