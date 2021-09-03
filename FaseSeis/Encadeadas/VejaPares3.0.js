@@ -16,7 +16,7 @@ while (true) {
 
     texto = ""
 
-    while (limiteMin < limiteMax) {
+    while (limiteMin < limiteMax) { // Não pode usar expressões boleanas nesse aqui
         texto += (limiteMin).toString() + ",";
         limiteMin += 2;
     }
@@ -28,7 +28,7 @@ while (true) {
 
     parar = (PROMPT("Deseja continuar? 'S' ou 'N': ").toString().toUpperCase() == 'S') ? false : true ;
 
-    if (parar) {
+    if (parar) { // Nem seletores 
         break;
     }
 }
